@@ -1,0 +1,28 @@
+{
+  "name": "artsoft/yii2-art-media",
+  "description": "Media Module For Art CMS",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Taras Makitra",
+      "email": "makitrataras@gmail.com"
+    },
+    {
+      "name": "Artur Markov",
+      "email": "artmarkov@mail.ru"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "yiisoft/yii2-imagine": "~2.1",
+    "artsoft/yii2-art-core": "dev-master",
+    "tinymce/tinymce": "~4.5.0",
+    "2amigos/yii2-file-upload-widget": "~1.0.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "artsoft\\media\\": ""
+    }
+  }
+}
