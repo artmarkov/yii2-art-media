@@ -23,11 +23,7 @@ class Media extends DashboardWidget
         if (User::hasPermission('viewMedia')) {
             $recent = MediaModel::find()->orderBy(['id' => SORT_DESC])->limit($this->recentLimit)->all();
 
-            return $this->render('media',
-                [
-                    'height' => $this->height,
-                    'width' => $this->width,
-                    'position' => $this->position,
+            return $this->render('media',[                   
                     'recent' => $recent,
                 ]);
         }

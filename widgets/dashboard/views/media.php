@@ -1,51 +1,48 @@
 <?php
-
 /* @var $this yii\web\View */
 /* @var $item artsoft\media\models\Media */
 ?>
 
-    <div class="pull-<?= $position ?> col-xs-12 col-md-<?= $width ?> widget-height-<?= $height ?>">
-        <div class="panel panel-default dw-widget">
-            <div class="panel-heading"><?= Yii::t('art/media', 'Media Activity') ?></div>
-            <div class="panel-body">
+<div class="panel panel-default dw-widget">
+    <div class="panel-heading"><?= Yii::t('art/media', 'Media Activity') ?></div>
+    <div class="panel-body">
 
-                <?php if (count($recent)): ?>
+        <?php if (count($recent)): ?>
 
-                    <div class="clearfix">
-                        <?php foreach ($recent as $item) : ?>
-                            <div class="clearfix dw-media">
-                                <div class="pull-left">
-                                    <img class="dw-media-image" src="<?= $item->getThumbUrl('small') ?>">
-                                </div>
-                                <div class="dw-media-info">
-                                    <div>
-                                        <b><?= Yii::t('art', 'Title') ?>:</b>
-                                        <span><?= ($item->title) ? $item->title : Yii::t('yii', '(not set)') ?></span>
-                                    </div>
-                                    <div>
-                                        <b><?= Yii::t('art/media', 'File Size') ?>:</b>
-                                        <span><?= $item->getFileSize() ?></span>
-                                    </div>
-                                    <div>
-                                        <b><?= Yii::t('art/media', 'Uploaded By') ?>:</b>
-                                        <span><?= $item->author->username ?></span>
-                                    </div>
-                                    <div>
-                                        <b><?= Yii::t('art', 'Uploaded') ?>:</b>
-                                        <span><?= $item->createdDateTime ?></span>
-                                    </div>
-                                </div>
+            <div class="clearfix">
+                <?php foreach ($recent as $item) : ?>
+                    <div class="clearfix dw-media">
+                        <div class="pull-left">
+                            <img class="dw-media-image" src="<?= $item->getThumbUrl('small') ?>">
+                        </div>
+                        <div class="dw-media-info">
+                            <div>
+                                <b><?= Yii::t('art', 'Title') ?>:</b>
+                                <span><?= ($item->title) ? $item->title : Yii::t('yii', '(not set)') ?></span>
                             </div>
-                        <?php endforeach; ?>
+                            <div>
+                                <b><?= Yii::t('art/media', 'File Size') ?>:</b>
+                                <span><?= $item->getFileSize() ?></span>
+                            </div>
+                            <div>
+                                <b><?= Yii::t('art/media', 'Uploaded By') ?>:</b>
+                                <span><?= $item->author->username ?></span>
+                            </div>
+                            <div>
+                                <b><?= Yii::t('art', 'Uploaded') ?>:</b>
+                                <span><?= $item->createdDateTime ?></span>
+                            </div>
+                        </div>
                     </div>
-
-                <?php else: ?>
-                    <h4><em><?= Yii::t('art/media', 'No images found.') ?></em></h4>
-                <?php endif; ?>
-
+                <?php endforeach; ?>
             </div>
-        </div>
+
+        <?php else: ?>
+            <h4><em><?= Yii::t('art/media', 'No images found.') ?></em></h4>
+        <?php endif; ?>
+
     </div>
+</div>
 <?php
 $css = <<<CSS
 .dw-widget{
