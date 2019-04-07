@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="media-default-settings">
-    <h1><?= $this->title ?></h1>
+    <h3><?= $this->title ?></h3>
 
     <div class="panel panel-default">
         <div class="panel-heading"><?= Yii::t('art/media', 'Thumbnails settings') ?></div>
