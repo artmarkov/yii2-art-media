@@ -111,7 +111,7 @@ class ManageController extends BaseController
         /**
          * @var artsoft\media\models\Media
          */
-        $model = Media::findOne(["{$tableName}.id" => $id]);
+        $model = Media::findOne(["{$tableName}.[[id]]" => $id]);
         $message = Yii::t('art/media', "Changes haven't been saved.");
 
         if (User::hasPermission('editMedia')) {
@@ -145,7 +145,7 @@ class ManageController extends BaseController
         /**
          * @var artsoft\media\models\Media
          */
-        $model = Media::findOne(["{$tableName}.id" => $id]);
+        $model = Media::findOne(["{$tableName}.[[id]]" => $id]);
 
         if (User::hasPermission('deleteMedia')) {
             if ($model->isImage()) {
