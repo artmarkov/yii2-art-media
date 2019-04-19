@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'class' => 'artsoft\grid\columns\TitleActionColumn',
                         'controller' => '/media/category',
                         'title' => function (Category $model) {
-                            return Html::a($model->title, ['/media/category/update', 'id' => $model->id], ['data-pjax' => 0]);
+                            return $model->title;
                         },
                         'buttonsTemplate' => '{update} {delete}',
                     ],
