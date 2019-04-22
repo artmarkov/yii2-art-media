@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="media-default-settings">
     <h3><?= $this->title ?></h3>
 
-    <div class="panel panel-default">
+    <div class="panel panel-danger">
         <div class="panel-heading"><?= Yii::t('art/media', 'Thumbnails settings') ?></div>
         <div class="panel-body">
 
@@ -31,6 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
             </ul>
             <p><?= Yii::t('art/media', 'If you change the thumbnails sizes, it is strongly recommended resize image thumbnails.') ?></p>
+        </div>
+        <div class="panel-footer">
             <?= Html::a(Yii::t('art/media', 'Do resize thumbnails'), ['/media/manage/resize'], ['class' => 'btn btn-danger']) ?>
         </div>
     </div>
