@@ -7,7 +7,7 @@ use artsoft\behaviors\MultilingualBehavior;
 use artsoft\models\OwnerAccess;
 use Yii;
 use yii\behaviors\BlameableBehavior;
-use yii\behaviors\SluggableBehavior;
+use artsoft\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use artsoft\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
@@ -68,9 +68,11 @@ class Category extends ActiveRecord implements OwnerAccess
         return [
             BlameableBehavior::className(),
             TimestampBehavior::className(),
-            'sluggable' => [
+           [
                 'class' => SluggableBehavior::className(),
-                'attribute' => 'title',
+                'in_attribute' => 'title',
+                'out_attribute' => 'slug',
+                'translit' => true           
             ],
             'multilingual' => [
                 'class' => MultilingualBehavior::className(),
