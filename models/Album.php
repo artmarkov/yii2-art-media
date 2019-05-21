@@ -54,7 +54,7 @@ class Album extends ActiveRecord implements OwnerAccess
     public function rules()
     {
         return [
-            [['category_id', 'title'], 'required'],
+            [['category_id', 'slug', 'title'], 'required'],
             [['created_by', 'updated_by', 'created_at', 'updated_at', 'category_id', 'visible'], 'integer'],
             [['description'], 'string'],
             [['slug', 'title'], 'string', 'max' => 255]
