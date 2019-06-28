@@ -53,7 +53,7 @@ class Category extends ActiveRecord implements OwnerAccess
     public function rules()
     {
         return [
-            [['slug', 'title'], 'required'],
+            [['title'], 'required'],
             [['created_by', 'updated_by', 'created_at', 'updated_at', 'visible'], 'integer'],
             [['description'], 'string'],
             [['slug', 'title'], 'string', 'max' => 255],
