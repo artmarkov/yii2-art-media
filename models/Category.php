@@ -5,6 +5,7 @@ namespace artsoft\media\models;
 use omgdef\multilingual\MultilingualQuery;
 use artsoft\behaviors\MultilingualBehavior;
 use artsoft\models\OwnerAccess;
+use artsoft\models\User;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use artsoft\behaviors\SluggableBehavior;
@@ -53,7 +54,8 @@ class Category extends ActiveRecord implements OwnerAccess
     public function rules()
     {
         return [
-            [['title'], 'required'],
+            ['title', 'required'],
+            ['slug', 'required', 'enableClientValidation' => false],
             [['created_by', 'updated_by', 'created_at', 'updated_at', 'visible'], 'integer'],
             [['description'], 'string'],
             [['slug', 'title'], 'string', 'max' => 255],
@@ -103,6 +105,53 @@ class Category extends ActiveRecord implements OwnerAccess
         ];
     }
 
+     
+    public function getCreatedDate()
+    {
+        return Yii::$app->formatter->asDate(($this->isNewRecord) ? time() : $this->created_at);
+    }
+
+    public function getUpdatedDate()
+    {
+        return Yii::$app->formatter->asDate(($this->isNewRecord) ? time() : $this->updated_at);
+    }
+
+    public function getCreatedTime()
+    {
+        return Yii::$app->formatter->asTime(($this->isNewRecord) ? time() : $this->created_at);
+    }
+
+    public function getUpdatedTime()
+    {
+        return Yii::$app->formatter->asTime(($this->isNewRecord) ? time() : $this->updated_at);
+    }
+
+    public function getCreatedDatetime()
+    {
+        return "{$this->createdDate} {$this->createdTime}";
+    }
+
+    public function getUpdatedDatetime()
+    {
+        return "{$this->updatedDate} {$this->updatedTime}";
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUpdatedBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCreatedBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+    
     /**
      * @return \yii\db\ActiveQuery
      */
