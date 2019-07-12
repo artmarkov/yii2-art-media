@@ -114,7 +114,7 @@ $form = ActiveForm::begin([
 <?php if ($mode !== 'modal'): ?>
     <?=
     Html::a(Yii::t('art', 'Delete'), ['/media/manage/delete', 'id' => $model->id], [
-        'class' => 'btn btn-default',
+        'class' => 'btn btn-danger',
         'data-message' => Yii::t('yii', 'Are you sure you want to delete this item?'),
         'data-id' => $model->id,
         'role' => 'delete',
