@@ -7,7 +7,6 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('art/media', 'Update Category');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('art/media', 'Media'), 'url' => ['/media/default/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('art/media', 'Albums'), 'url' => ['/media/album/index']];
 $this->params['breadcrumbs'][] = ['label' => Yii::t('art/media', 'Categories'), 'url' => ['/media/category/index']];
 $this->params['breadcrumbs'][] = Yii::t('art', 'Update');
 ?>

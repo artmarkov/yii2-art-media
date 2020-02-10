@@ -13,7 +13,6 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('art/media', 'Categories');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('art/media', 'Media'), 'url' => ['/media/default/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('art/media', 'Albums'), 'url' => ['/media/album/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
